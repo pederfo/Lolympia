@@ -4,11 +4,11 @@
     "slug": "lolympia",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/lolympic_icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/lolympic_icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2b2d3d"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -17,12 +17,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pedersapp.lolympia",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/lolympic_icon.png",
+        "backgroundColor": "#2b2d3d"
       }
     },
     "web": {
