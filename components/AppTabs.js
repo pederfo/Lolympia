@@ -1,11 +1,12 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+
 import HomeScreen from "../screens/homeScreen";
 import Chat from "./Chat";
 import Login from "./Login2";
 import colors from "../config/colors";
-import { color } from "react-native-reanimated";
+import Results from "../screens/resultScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -31,6 +32,7 @@ function AppTabs() {
     >
       <Tab.Screen name="MAIN" component={HomeScreen} />
       <Tab.Screen name="PRAT" component={Chat} />
+      <Tab.Screen name="RESULTS" component={Results} />
     </Tab.Navigator>
   );
 }
