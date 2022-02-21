@@ -7,6 +7,7 @@ import Chat from "./Chat";
 import Login from "./Login2";
 import colors from "../config/colors";
 import Results from "../screens/resultScreen";
+import ExpandableList from "./list/expandableList";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,7 +33,7 @@ function AppTabs() {
     >
       <Tab.Screen name="MAIN" component={HomeScreen} />
       <Tab.Screen name="PRAT" component={Chat} />
-      <Tab.Screen name="RESULTS" component={Results} />
+      <Tab.Screen name="RESULTS" component={ExpandableList} />
     </Tab.Navigator>
   );
 }

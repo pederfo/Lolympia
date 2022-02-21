@@ -36,7 +36,7 @@ export default function resultScreen(props) {
         <View style={styles.listContainer}>
           <FlatList
             data={resultList}
-            keyExtractor={(resultList) => resultList.id}
+            keyExtractor={(resultList) => resultList.id.toString()}
             renderItem={({ item }) => (
               <ListItem
                 title={item.name}
