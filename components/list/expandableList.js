@@ -15,36 +15,46 @@ import { color } from "react-native-reanimated";
 import colors from "../../config/colors";
 import AppText from "../AppText";
 
-const content = [
+let content = [
   {
     isExpanded: false,
     category_name: "Otto",
-    score: "249",
     place: "1.",
-    subcategory: [{ id: 1, gren: "Liten Stein", val: "4" }],
+    subcategory: [{ id: 1, gren: "Liten Stein", val: 4 }],
   },
   {
     isExpanded: false,
     category_name: "Sofie",
-    score: "220",
     place: "2.",
     subcategory: [
-      { id: 2, gren: "Liten Stein", val: "8" },
-      { id: 3, gren: "Stor Stein", val: "10" },
-      { id: 4, gren: "Støvelkast", val: "3" },
+      { id: 2, gren: "Liten Stein", val: 8 },
+      { id: 3, gren: "Stor Stein", val: 10 },
+      { id: 4, gren: "Støvelkast", val: 3 },
     ],
   },
   {
     isExpanded: false,
     category_name: "Peder",
-    score: "114",
     place: "3.",
     subcategory: [
-      { id: 5, gren: "Liten Stein", val: "20" },
-      { id: 6, gren: "Støvelkast", val: "14" },
+      { id: 5, gren: "Liten Stein", val: 20 },
+      { id: 6, gren: "Støvelkast", val: 14 },
     ],
   },
 ];
+
+const addScore = (item) => {
+  item.score = item.subcategory.reduce((pre, cur) => {
+    return pre + cur.val;
+  }, 0);
+  return item.score;
+};
+
+const rearrangeContent = (content) => {
+  content.forEach((item) => addScore(item));
+  content = content.sort((a, b) => b.score - a.score);
+  return content;
+};
 
 const ExpandableComponent = ({ item, onClickFunction }) => {
   const [layoutHeight, setLayoutHeight] = useState(0);
@@ -81,6 +91,8 @@ const ExpandableComponent = ({ item, onClickFunction }) => {
 };
 
 const expandableList = () => {
+
+  content = rearrangeContent(content);
   const [multiSelect, setMultiSelect] = useState(false);
   const [listDataSource, setlistDataSource] = useState(content);
 
